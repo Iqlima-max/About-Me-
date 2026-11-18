@@ -1,0 +1,445 @@
+
+/* =================================
+   1. BASIC SETTINGS
+================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color:#050505;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+:root {
+    --black: #050505;
+    --white: #ffffff;
+    --gold: #ffc34d;
+    --grey: #aaaaaa;
+}
+
+
+/* =================================
+   2. NAVIGATION BAR
+================================= */
+
+.header {
+    width: 100%;
+    padding: 25px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.navbar a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    position: relative;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--gold);
+}
+
+.navbar a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--gold);
+    left: 0;
+    bottom: -7px;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
+}
+
+
+/* =================================
+   3. HOMEPAGE LAYOUT
+================================= */
+
+.home {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 110px 8% 60px;
+    gap: 35px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* =================================
+   4. LEFT CONTENT
+================================= */
+
+.home-content {
+    width: 55%;
+    max-width: 570px;
+    flex-shrink: 0;
+    z-index: 2;
+
+    animation: slideLeft 1s ease both;
+}
+
+.greeting {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    margin-bottom: 22px;
+}
+
+.home-content h1 {
+    font-size: clamp(45px, 5.5vw, 76px);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -3px;
+    margin-bottom: 18px;
+}
+
+.home-content h1 span {
+    color: var(--gold);
+}
+
+.home-content h2 {
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.description {
+    color: var(--grey);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    max-width: 450px;
+    margin-bottom: 32px;
+}
+
+
+/* =================================
+   5. BUTTONS
+================================= */
+
+.buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--gold);
+    color: var(--black);
+    border: 2px solid var(--gold);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px #ffc34d30;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid #777777;
+}
+
+.btn-outline:hover {
+    background-color: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+
+/* =================================
+   6. PROFILE IMAGE
+================================= */
+
+.home-image {
+    width: 42%;
+    max-width: 470px;
+    flex-shrink: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    animation: slideRight 1s ease both;
+}
+
+.home-image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    filter: grayscale(15%);
+    transition: all 0.5s ease;
+}
+
+.home-image img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.04);
+}
+
+.image-glow {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background-color: var(--gold);
+    filter: blur(130px);
+    opacity: 0.12;
+    border-radius: 50%;
+}
+
+
+/* =================================
+   7. BOTTOM DETAILS
+================================= */
+
+.scroll-text {
+    position: absolute;
+    bottom: 25px;
+    left: 8%;
+    color: #777777;
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 25px;
+    right: 8%;
+    color: #777777;
+    font-size: 12px;
+}
+
+.footer {
+    text-align: center;
+    padding: 25px 10px 35px;
+    border-top: 1px solid #655650;
+    color: #c9bdb5;
+}
+
+.footer p {
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin: 6px 0;
+}
+/* =================================
+   8. ANIMATIONS
+================================= */
+
+@keyframes slideLeft {
+
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+@keyframes slideRight {
+
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =================================
+   9. TABLET RESPONSIVE
+================================= */
+
+@media screen and (max-width: 1000px) {
+
+    .header {
+        padding: 22px 5%;
+    }
+
+    .navbar {
+        gap: 15px;
+    }
+
+    .navbar a {
+        font-size: 11px;
+    }
+
+    .home {
+        padding: 120px 6% 70px;
+        gap: 25px;
+    }
+
+    .home-content {
+        width: 55%;
+    }
+
+    .home-content h1 {
+        font-size: 52px;
+    }
+
+    .home-image {
+        width: 40%;
+    }
+
+}
+
+
+/* =================================
+   10. MOBILE RESPONSIVE
+================================= */
+
+@media screen and (max-width: 650px) {
+
+    .header {
+        position: relative;
+        flex-direction: column;
+        gap: 22px;
+        padding: 22px 5%;
+    }
+
+    .navbar {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px 20px;
+    }
+
+    .navbar a {
+        font-size: 11px;
+    }
+
+    .home {
+        min-height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 65px 7% 80px;
+        gap: 45px;
+    }
+
+    .home-content {
+        width: 100%;
+    }
+
+    .home-content h1 {
+        font-size: clamp(43px, 12vw, 60px);
+        letter-spacing: -2px;
+    }
+
+    .home-content h2 {
+        font-size: 19px;
+    }
+
+    .description {
+        font-size: 13px;
+    }
+
+    .home-image {
+        width: 85%;
+        max-width: 350px;
+        align-self: center;
+    }
+
+    .scroll-text {
+        display: none;
+    }
+
+    .page-number {
+        bottom: 20px;
+        right: 7%;
+    }
+
+}
+
+
+/* =================================
+   11. REDUCE MOTION
+================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}
